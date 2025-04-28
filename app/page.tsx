@@ -1,3 +1,5 @@
+"use client";
+
 import Navbar from "@/components/navbar";
 import Image from "next/image";
 import { Spotlight }  from "@/components/ui/spotlight-new";
@@ -5,16 +7,51 @@ import Link from "next/link";
 import SliderOne from "@/components/ui/slider";
 
 import WebsiteDesign from "./website-design";
-import GraphicDesign from "./graphic-design";
 import ShopifyStores from "./shopify-stores";
 import Brands from "./brands";
 import Services from "./services";
+import FAQS from "./faq";
+import { useRef } from "react";
+import Ecommerce from "./ecommerce";
 
 
 export default function Home() {
+
+  const WebsiteDesignRef =useRef<HTMLDivElement>(null);
+  const EcommerceRef =useRef<HTMLDivElement>(null);
+  const shopifyStoresRef =useRef<HTMLDivElement>(null);
+  const brandsRef =useRef<HTMLDivElement>(null);
+  const servicesRef =useRef<HTMLDivElement>(null);
+
+  const scrollToWebsiteDesign = () => {
+    WebsiteDesignRef.current?.scrollIntoView({ behavior: "smooth", });
+  }
+
+  const scrollToEcommerce = () => {
+    EcommerceRef.current?.scrollIntoView({ behavior: "smooth", });
+  }
+
+  const scrollToShopifyStores = () => {
+    shopifyStoresRef.current?.scrollIntoView({ behavior: "smooth", });
+  }
+
+  const scrollToBrands = () => {
+    brandsRef.current?.scrollIntoView({ behavior: "smooth", });
+  }
+
+  const scrollToServices = () => {
+    servicesRef.current?.scrollIntoView({ behavior: "smooth", });
+  }
+
   return (
     <div className="w-full md:items-center md: justify-center bg-black/[0.96] antialiased bg-grid-white/[0.02] relative overflow-hidden">
-      <Navbar />
+      <Navbar 
+        scrollToWebsiteDesign={scrollToWebsiteDesign}
+        scrollToEcommerce={scrollToEcommerce}
+        scrollToShopifyStores={scrollToShopifyStores}
+        scrollToBrands={scrollToBrands}
+        scrollToServices={scrollToServices}
+      />
       <Spotlight className="hidden md:flex md:left-80"
       fill="white"
       />
@@ -40,16 +77,22 @@ export default function Home() {
 
           <div className="w-full pt-20">
             <SliderOne />
-
+            <div ref={WebsiteDesignRef}>
             <WebsiteDesign />
-
-            <GraphicDesign />
-
+            </div>
+            <div ref={EcommerceRef}>
+            <Ecommerce />
+            </div>
+            <div ref={shopifyStoresRef}>
             <ShopifyStores />
-
+            </div>
+            <div ref={brandsRef}>
             <Brands />
-
-            <Services />
+            </div>
+            <div ref={servicesRef}>
+              <Services />
+            </div>
+            <FAQS />
           </div>
 
       </div>

@@ -6,14 +6,14 @@ import { EvervaultCard } from "@/components/ui/evervault-card";
 import { EvervaultCardDemo } from "./snippets/evervault-card-snippet";
 
 
-const GraphicDesign = () => {
+const Ecommerce = () => {
     return ( <div>
         <div className="p-4 mx-auto relative z-10 w-full pt-10 md:pt-20 px-2">
       <div className="text-4xl  md:text-7xl text-center bg-clip-text text-transparent bg-gradient-to-b from-purple-500 to-sky-200 bg-opacity-50">
-              Graphic Design <br /> that works
+              E-Commerce Store <br /> that sells.
       </div>
       <p className="mt-4 text-lg font-normal  text-neutral-300 max-w-lg text-center mx-auto px-4">
-      We create stunning visuals for your brand. From logos to social media posts, we&apos;ve got you covered.
+      We create highly converting e-commerce website for your brand. From product inventory to stunning user interface, we&apos;ve got you covered.
         </p>
         <div className="items-center md:flex justify-center md:mx-auto md:space-x-10">
             <motion.div
@@ -35,4 +35,4 @@ const GraphicDesign = () => {
     </div> );
 }
  
-export default GraphicDesign;
+export default Ecommerce;

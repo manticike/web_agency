@@ -33,11 +33,11 @@ export function ThreeDCardDemo() {
           <CardItem
             translateZ={20}
             as="a"
-            href="https://twitter.com/mannupaaji"
+            href="https://www.facebook.com/manticwebagency"
             target="__blank"
             className="px-4 py-2 rounded-xl text-xs font-normal dark:text-white"
           >
-            Try now →
+            Follow Us →
           </CardItem>
           <CardItem
             translateZ={20}
