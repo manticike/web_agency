@@ -1,22 +1,18 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
   images: {
     remotePatterns: [
       {
         protocol: 'https',
         hostname: 'flowbite.s3.amazonaws.com',
-        // pathname: '/docs/gallery/masonry/**', // double asterisks mean "any file under that folder"
+        pathname: '/docs/gallery/masonry/**',
       },
     ],
   },
 };
-
-module.exports = {
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-};
-
 
 export default nextConfig;
