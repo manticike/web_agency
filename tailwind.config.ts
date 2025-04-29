@@ -1,5 +1,16 @@
 import type { Config } from 'tailwindcss'
 
+module.exports = {
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: ['var(--font-poppins)', 'sans-serif'],
+      },
+    },
+  },
+}
+
+
 const config: Config = {
   content: [
     './app/**/*.{js,ts,jsx,tsx,mdx}',

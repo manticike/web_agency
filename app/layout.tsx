@@ -1,21 +1,13 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
-import '@fontsource/poppins'; // Requires `npm install @fontsource/poppins`
 import "./globals.css";
 
-// const poppins = Poppins({
-//   subsets: ["latin"],
-//   weight: "400",
-//   variable: "--font-poppins",
-//   display: "swap", // better font loading performance
-// });
-
 const poppins = Poppins({
-  subsets: ['latin'],
-  weight: ['400', '700'],
-  display: 'swap',
-})
-
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-poppins",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -24,11 +16,11 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en" className={poppins.className}>
+    <html lang="en" className={poppins.variable}>
       <body className="font-sans antialiased">
         {children}
       </body>
