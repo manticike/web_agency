@@ -47,6 +47,13 @@ const DropDownMenu: React.FC<DropDownMenuProps> = ({ onClose, scrollToServices }
         <Link href='/#services'  className="cursor-pointer text-black text-2xl">
           Services
         </Link>
+        <a href="https://blog.antisaac.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        className=" cursor-pointer block text-black text-2xl"
+        >
+          Blog
+        </a>
       </div>
     </motion.div>
   );

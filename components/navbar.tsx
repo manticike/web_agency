@@ -12,7 +12,7 @@ interface NavbarProps {
   scrollToEcommerce: () => void;
   scrollToShopifyStores: () => void;
   scrollToBrands: () => void;
-  scrollToServices: () => void; // Define scrollToServices function
+  scrollToServices: () => void;
 }
 
 const Navbar = ({
@@ -20,7 +20,7 @@ const Navbar = ({
   scrollToEcommerce,
   scrollToShopifyStores,
   scrollToBrands,
-  scrollToServices, // Add scrollToServices to props
+  scrollToServices,
 }: NavbarProps) => {
   const [isDropDownVisible, setIsDropDownVisible] = useState(false);
 
@@ -35,33 +35,36 @@ const Navbar = ({
   return (
     <div>
       <div className="p-6 md:p-10 flex items-center justify-between z-50">
-        <div>
-          <Link className="cursor-pointer" href="/">
-            <Image
-              priority
-              src="/logo/logoipsum-372.svg"
-              alt="Logo"
-              width={100}
-              height={100}
-              className="w-10 h-10 md:w-14 md:h-14"
-            />
-          </Link>
-        </div>
+        {/* Logo and Text */}
+        <Link href="/" className="flex items-center space-x-2 cursor-pointer">
+          <Image
+            priority
+            src="/logo/mantic-logo.png"
+            alt="Logo"
+            width={100}
+            height={100}
+            className="w-10 h-10 md:w-14 md:h-14"
+          />
+          <span className="text-lg md:text-xl font-semibold text-white">
+            Mantic Web Agency
+          </span>
+        </Link>
+
+        {/* Desktop Navigation */}
         <div
           className="cursor-pointer hidden 
             md:flex space-x-10 items-center
-             text-slate-300 text-center 
-             bg-clip-text 
-             bg-gradient-to-b from-neutral-50
-              to bg-neutral-400 bg-opacity-50"
+            text-slate-300 text-center 
+            bg-clip-text 
+            bg-gradient-to-b from-neutral-50
+            to bg-neutral-400 bg-opacity-50"
         >
           <div onClick={scrollToWebsiteDesign} className="hover:text-gray-50">
             Website Design
           </div>
           <div onClick={scrollToEcommerce} className="hover:text-gray-50">
-            E-commerces Stores
+            E-commerce Stores
           </div>
-
           <div onClick={scrollToShopifyStores} className="hover:text-gray-50">
             Shopify Stores
           </div>
@@ -71,15 +74,20 @@ const Navbar = ({
           <div onClick={scrollToServices} className="hover:text-gray-50">
             Services
           </div>
-
           <Link href="/pricing" className="hover:text-gray-50">
             Pricing
           </Link>
+          <a href="https://blog.antisaac.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-gray-50">
+            Blog
+          </a>
         </div>
 
+        {/* Mobile Menu Icon */}
         <div className="flex md:hidden">
           {isDropDownVisible ? (
-            // display an x icon when the drop is visible
             <div
               onClick={toggleDropDown}
               className="w-8 h-8 text-slate-300 cursor-pointer"
@@ -87,7 +95,7 @@ const Navbar = ({
               <X />
               <DropDownMenu
                 onClose={closeDropDown}
-                scrollToServices={scrollToServices} // Pass scrollToServices
+                scrollToServices={scrollToServices}
               />
             </div>
           ) : (
@@ -98,17 +106,16 @@ const Navbar = ({
           )}
         </div>
 
+        {/* Contact Button */}
         <div className="hidden md:flex">
           <Link
             href="/contact"
-            className="
-            inline-flex h-12 animate-shimmer items-center justify-center 
-            rounded-md border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] 
-            bg-[length:200%_100%] px-6 font-medium text-slate-400 transition-colors
-             focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2
-              focus:ring-offset-slate-50
-
-            "
+            className="inline-flex h-12 animate-shimmer items-center justify-center 
+              rounded-md border border-slate-800 
+              bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] 
+              bg-[length:200%_100%] px-6 font-medium text-slate-400 transition-colors
+              focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2
+              focus:ring-offset-slate-50"
           >
             Contact
           </Link>

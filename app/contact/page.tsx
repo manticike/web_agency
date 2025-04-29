@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { toast } from "sonner"; // Using Sonner for toast notifications
+import { toast } from "sonner";
 
 import { Checkbox } from "@/components/ui/checkbox";
 import {
@@ -46,6 +46,7 @@ const FormSchema = z
     services: z.enum([
       "Mobile App Development",
       "Ecommerce",
+      "Shopify Stores",
       "Inventory Management Software",
       "Website Development",
       "Support",
@@ -174,7 +175,7 @@ export default function ContactForm() {
                         Last name *
                       </FormLabel>
                       <FormControl>
-                        <Input {...field} className="text-white"/>
+                        <Input {...field} className="text-white" />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -191,7 +192,7 @@ export default function ContactForm() {
                       Email *
                     </FormLabel>
                     <FormControl>
-                      <Input {...field} className="text-white"/>
+                      <Input {...field} className="text-white" />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -207,7 +208,7 @@ export default function ContactForm() {
                       Job Title *
                     </FormLabel>
                     <FormControl>
-                      <Input {...field} className="text-white"/>
+                      <Input {...field} className="text-white" />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -223,7 +224,7 @@ export default function ContactForm() {
                       Company name *
                     </FormLabel>
                     <FormControl>
-                      <Input {...field} className="text-white"/>
+                      <Input {...field} className="text-white" />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -257,12 +258,13 @@ export default function ContactForm() {
                         <SelectItem value="Shopify Stores">
                           Shopify Stores
                         </SelectItem>
-                        <SelectItem value="Inventory Management">
+                        <SelectItem value="Inventory Management Software">
                           Inventory Management
                         </SelectItem>
                         <SelectItem value="Website Development">
                           Website Development
                         </SelectItem>
+                        <SelectItem value="Support">Support</SelectItem>
                       </SelectContent>
                     </Select>
                     <FormMessage />
@@ -297,12 +299,29 @@ export default function ContactForm() {
                         <SelectItem value="Get a Quote">
                           Get a Quote
                         </SelectItem>
-                        <SelectItem value="Other">
-                          Other
-                        </SelectItem>
+                        <SelectItem value="Other">Other</SelectItem>
                       </SelectContent>
                     </Select>
                     <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              <FormField
+                control={form.control}
+                name="info"
+                render={({ field }) => (
+                  <FormItem className="w-full">
+                    <FormLabel className="text-sm text-white">
+                      Anything else?
+                    </FormLabel>
+                    <FormControl>
+                      <Textarea
+                        {...field}
+                        rows={4}
+                        className="text-white w-full resize-none rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+                      />
+                    </FormControl>
                   </FormItem>
                 )}
               />
@@ -325,14 +344,14 @@ export default function ContactForm() {
                 )}
               />
 
-              <Button type="submit" className="w-full" disabled={loading}>
+              <Button type="submit" className="w-full cursor-pointer" disabled={loading}>
                 {loading ? "Submitting..." : "Submit"}
               </Button>
             </form>
           ) : (
-            <div className="p-10 md:w-1/3 flex flex-col items-center justify-center border rounded-3xl">
+            <div className="p-10 md:w-1/3 flex flex-col items-center justify-center border border-white rounded-3xl">
               <PiSmiley size={64} className="text-green-400" />
-              <h2 className="text-xl font-semibold text-center mt-4">
+              <h2 className="text-xl font-semibold text-white text-center mt-4">
                 Thank you for contacting us!
               </h2>
               <p className="text-gray-400 text-center mt-2">
