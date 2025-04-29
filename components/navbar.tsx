@@ -34,7 +34,7 @@ const Navbar = ({
 
   return (
     <div>
-      <div className="fixed p-6 md:p-10 flex items-center justify-between z-50">
+      <div className="p-6 md:p-10 flex items-center justify-between z-50">
         {/* Logo and Text */}
         <Link href="/" className="flex items-center space-x-2 cursor-pointer">
           <Image
